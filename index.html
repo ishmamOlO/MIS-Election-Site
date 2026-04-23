@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangladesh Election Commission - Student Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // Configuration for our theme colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandGreen: '#006a4e',
+                        brandRed: '#f42a41',
+                        brandBlue: '#1e3a8a',
+                    }
+                }
+            }
+        }
+
+        // Simple function to switch between pages
+        function showPage(pageId) {
+            document.getElementById('home-page').classList.add('hidden');
+            document.getElementById('search-page').classList.add('hidden');
+            document.getElementById('nid-page').classList.add('hidden');
+            document.getElementById(pageId).classList.remove('hidden');
+            window.scrollTo(0,0);
+        }
+    </script>
+    <style>
+        /* CSS for Dropdown Menus */
+        .dropdown:hover .dropdown-menu { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <nav class="bg-brandGreen text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="showPage('home-page')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Bangladesh_Election_Commission_logo.svg/1200px-Bangladesh_Election_Commission_logo.svg.png" alt="ECS Logo" class="h-10 w-10 bg-white rounded-full p-1">
+                    <div class="font-bold text-xl leading-tight">
+                        <div>Bangladesh Election</div>
+                        <div class="text-sm font-normal text-green-200">Commission Portal</div>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex space-x-6 font-semibold">
+                    
+                    <div class="relative dropdown group">
+                        <button class="hover:text-green-200 py-2 flex items-center">Elections <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                        <div class="dropdown-menu hidden absolute left-0 mt-0 w-64 bg-white text-gray-800 shadow-xl rounded-md overflow-hidden border border-gray-100">
+                            <a href="#" onclick="showPage('search-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue border-b">Presidential Election</a>
+                            <a href="#" onclick="showPage('search-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue border-b">National Parliament Election</a>
+                            <a href="#" onclick="showPage('search-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue border-b">City Corporation Election</a>
+                            <a href="#" onclick="showPage('search-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue border-b">Upazila Parishad Election</a>
+                            <a href="#" onclick="showPage('search-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue border-b">District & Municipality</a>
+                            <a href="#" onclick="showPage('search-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue border-b bg-gray-50">Election Laws & Policies</a>
+                            <a href="#" onclick="showPage('search-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue bg-gray-50">Interactive Election Areas (Map)</a>
+                        </div>
+                    </div>
+
+                    <div class="relative dropdown group">
+                        <button class="hover:text-green-200 py-2 flex items-center">Updates <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                        <div class="dropdown-menu hidden absolute left-0 mt-0 w-48 bg-white text-gray-800 shadow-xl rounded-md overflow-hidden border border-gray-100">
+                            <a href="#policy-section" onclick="showPage('home-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue border-b">National Policy</a>
+                            <a href="#policy-section" onclick="showPage('home-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue border-b">Election Laws</a>
+                            <a href="#policy-section" onclick="showPage('home-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue border-b">News & Press</a>
+                            <a href="#policy-section" onclick="showPage('home-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue">Media Gallery</a>
+                        </div>
+                    </div>
+
+                    <div class="relative dropdown group">
+                        <button class="hover:text-green-200 py-2 flex items-center">My Voting Status <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                        <div class="dropdown-menu hidden absolute left-0 mt-0 w-56 bg-white text-gray-800 shadow-xl rounded-md overflow-hidden border border-gray-100">
+                            <a href="#" onclick="showPage('nid-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue border-b">Check Voting Area & Center</a>
+                            <a href="#" onclick="showPage('nid-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue border-b">Age Eligibility Checker</a>
+                            <a href="#" onclick="showPage('nid-page')" class="block px-4 py-3 hover:bg-blue-50 hover:text-brandBlue bg-gray-50">Sign In / Apply via NID</a>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <button onclick="showPage('home-page')" class="hover:text-green-200 py-2">About ECS</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home-page" class="block">
+        
+        <header class="bg-white border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <span class="text-brandBlue font-bold tracking-wider uppercase text-sm">Citizen Service Portal</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-6">Empowering Your Democratic Right.</h1>
+                    <p class="text-lg text-gray-600 mb-8">Access your voting details, register for your National Identity Card, and stay updated with the latest election policies across Bangladesh.</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="showPage('nid-page')" class="bg-brandGreen hover:bg-green-800 text-white font-bold py-3 px-6 rounded-md shadow-md transition duration-300 text-center">
+                            <i class="fas fa-id-card mr-2"></i> Register for NID
+                        </button>
+                        <button onclick="showPage('nid-page')" class="bg-brandBlue hover:bg-blue-900 text-white font-bold py-3 px-6 rounded-md shadow-md transition duration-300 text-center">
+                            <i class="fas fa-sign-in-alt mr-2"></i> Sign in with NID
+                        </button>
+                    </div>
+                    <div class="mt-4">
+                        <button onclick="showPage('nid-page')" class="text-brandGreen font-semibold hover:underline flex items-center">
+                            Check My Voting Details <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="hidden md:flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Voting Box" class="rounded-lg shadow-2xl">
+                </div>
+            </div>
+        </header>
+
+        <section class="bg-gray-100 py-12 border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">National Election Statistics</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <div class="text-4xl text-brandBlue mb-2"><i class="fas fa-users"></i></div>
+                        <div class="text-3xl font-bold text-gray-900">119M+</div>
+                        <div class="text-sm text-gray-500 font-semibold uppercase mt-1">Total Voters</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <div class="text-4xl text-brandGreen mb-2"><i class="fas fa-map-marked-alt"></i></div>
+                        <div class="text-3xl font-bold text-gray-900">300</div>
+                        <div class="text-sm text-gray-500 font-semibold uppercase mt-1">Constituencies</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <div class="text-4xl text-brandRed mb-2"><i class="fas fa-building"></i></div>
+                        <div class="text-3xl font-bold text-gray-900">42K+</div>
+                        <div class="text-sm text-gray-500 font-semibold uppercase mt-1">Polling Centers</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                        <div class="text-4xl text-yellow-500 mb-2"><i class="fas fa-city"></i></div>
+                        <div class="text-3xl font-bold text-gray-900">64</div>
+                        <div class="text-sm text-gray-500 font-semibold uppercase mt-1">Districts Covered</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="policy-section" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-end mb-8">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900">Updated Policies & News</h2>
+                        <p class="text-gray-600 mt-2">Stay informed with the latest electoral laws and commission directives.</p>
+                    </div>
+                    <button class="hidden md:block text-brandBlue font-semibold hover:underline">View All <i class="fas fa-arrow-right text-sm"></i></button>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                        <div class="bg-blue-50 p-4 border-b border-gray-200">
+                            <span class="bg-brandBlue text-white text-xs font-bold px-2 py-1 rounded uppercase">New Law</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Digital Campaign Regulations 2026</h3>
+                            <p class="text-gray-600 text-sm mb-4">Updated guidelines regarding social media advertising and influencer promotions during the quiet period.</p>
+                            <a href="#" class="text-brandGreen font-semibold hover:underline text-sm">Read Document</a>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                        <div class="bg-green-50 p-4 border-b border-gray-200">
+                            <span class="bg-brandGreen text-white text-xs font-bold px-2 py-1 rounded uppercase">Directive</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Upazila Parishad EVM Protocol</h3>
+                            <p class="text-gray-600 text-sm mb-4">Standard operating procedures for Electronic Voting Machine deployment in rural polling centers.</p>
+                            <a href="#" class="text-brandGreen font-semibold hover:underline text-sm">Read Document</a>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                        <div class="bg-red-50 p-4 border-b border-gray-200">
+                            <span class="bg-brandRed text-white text-xs font-bold px-2 py-1 rounded uppercase">Notice</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Voter Registration Deadline Extension</h3>
+                            <p class="text-gray-600 text-sm mb-4">The deadline for new voter registration updates has been extended for Dhaka and Chittagong divisions.</p>
+                            <a href="#" class="text-brandGreen font-semibold hover:underline text-sm">Read Document</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="search-page" class="hidden bg-gray-100 min-h-screen py-10">
+        <div class="max-w-7xl mx-auto px-4">
+            
+            <div class="bg-white rounded-lg shadow-md p-6 border-t-4 border-brandGreen">
+                <div class="text-center mb-8">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Bangladesh_Election_Commission_logo.svg/1200px-Bangladesh_Election_Commission_logo.svg.png" alt="Logo" class="h-16 mx-auto mb-4">
+                    <h2 class="text-2xl font-bold text-gray-800">বাংলাদেশ নির্বাচন কমিশন</h2>
+                    <p class="text-gray-500">Candidate Information Search Portal</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1">নির্বাচনের ধরন (Election Type)</label>
+                        <select class="w-full border border-gray-300 rounded p-2 text-sm bg-gray-50 focus:outline-none focus:border-brandGreen">
+                            <option>নির্বাচন করুন (Select)</option>
+                            <option>National Parliament</option>
+                            <option>Upazila Parishad</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1">নির্বাচনের নাম (Election Name)</label>
+                        <select class="w-full border border-gray-300 rounded p-2 text-sm bg-gray-50 focus:outline-none focus:border-brandGreen">
+                            <option>নির্বাচন করুন (Select)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1">প্রার্থীর ধরণ (Candidate Type)</label>
+                        <select class="w-full border border-gray-300 rounded p-2 text-sm bg-gray-50 focus:outline-none focus:border-brandGreen">
+                            <option>নির্বাচন করুন (Select)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1">জেলা (District)</label>
+                        <select class="w-full border border-gray-300 rounded p-2 text-sm bg-gray-50 focus:outline-none focus:border-brandGreen">
+                            <option>নির্বাচন করুন (Select)</option>
+                            <option>Dhaka</option>
+                            <option>Chattogram</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs text-gray-500 mb-1">স্ট্যাটাস (Status)</label>
+                        <select class="w-full border border-gray-300 rounded p-2 text-sm bg-gray-50 focus:outline-none focus:border-brandGreen">
+                            <option>নির্বাচন করুন (Select)</option>
+                        </select>
+                    </div>
+                    <div class="flex items-end">
+                        <button class="bg-white border border-cyan-500 text-cyan-600 hover:bg-cyan-50 font-medium py-2 px-6 rounded text-sm transition w-full md:w-auto">
+                            অনুসন্ধান (Search)
+                        </button>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-cyan-600 text-white text-xs md:text-sm">
+                                <th class="p-3 border border-cyan-700">ক্রম<br>(Sl No)</th>
+                                <th class="p-3 border border-cyan-700">দাখিলকারীর নাম<br>(Candidate Name)</th>
+                                <th class="p-3 border border-cyan-700">ছবি<br>(Photo)</th>
+                                <th class="p-3 border border-cyan-700">রাজনৈতিক দল/স্বতন্ত্র<br>(Party/Independent)</th>
+                                <th class="p-3 border border-cyan-700">নির্বাচনী প্রতীক<br>(Symbol)</th>
+                                <th class="p-3 border border-cyan-700">হলফনামা<br>(Affidavit)</th>
+                                <th class="p-3 border border-cyan-700">নির্বাচনী ব্যয় ও সম্পদের বিবরণী<br>(Expenses & Assets)</th>
+                                <th class="p-3 border border-cyan-700">আয়কর রিটার্ন<br>(Income Tax)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b hover:bg-gray-50 text-sm">
+                                <td colspan="8" class="p-8 text-center text-gray-400">Search results will appear here.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="nid-page" class="hidden bg-gray-50 min-h-screen py-16">
+        <div class="max-w-md mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+            <div class="bg-brandBlue p-6 text-center text-white">
+                <i class="fas fa-fingerprint text-4xl mb-2"></i>
+                <h2 class="text-2xl font-bold">NID Services Portal</h2>
+                <p class="text-blue-200 text-sm">Sign in or apply to access voting details</p>
+            </div>
+            <div class="p-8">
+                <form onsubmit="event.preventDefault(); alert('This is a school project prototype. Backend not connected.');">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">NID Number / Smart Card ID</label>
+                        <input type="text" class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:border-brandBlue focus:ring-1 focus:ring-brandBlue" placeholder="Enter 10 or 17 digit NID">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
+                        <input type="date" class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:border-brandBlue focus:ring-1 focus:ring-brandBlue">
+                    </div>
+                    <div class="flex items-center justify-between mb-6">
+                        <button class="bg-brandGreen hover:bg-green-800 text-white font-bold py-3 px-4 rounded w-full transition duration-300">
+                            Access My Details
+                        </button>
+                    </div>
+                    <div class="text-center border-t pt-4">
+                        <p class="text-sm text-gray-600">Don't have an NID yet?</p>
+                        <button type="button" class="mt-2 text-brandBlue font-bold hover:underline">Apply for New Registration</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
+        <p>&copy; 2026 Bangladesh Election Commission. All rights reserved.</p>
+        <p class="mt-2">Developed for School Project Purposes Only.</p>
+    </footer>
+
+</body>
+</html>
